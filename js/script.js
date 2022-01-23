@@ -114,6 +114,7 @@ submit.addEventListener("click", (e) => {
       backtoTop.classList.add('active');
       backtoTop.innerHTML = `<i class="fas fa-arrow-left"></i>`; 
       window.removeEventListener('scroll', handleButton); 
+      resetButton();
 })
 
 const observer = new IntersectionObserver((entries) => {
