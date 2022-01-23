@@ -54,7 +54,7 @@ const notFoundError = (err) => {
 
   const errorInnerHTML = `
     <div class="img-container">
-        <img src="../images/errorPokemon.png"/>
+        <img src="images/errorPokemon.png"/>
     </div>
     <h3 class="name">${err}</h3>`;
 
@@ -110,7 +110,10 @@ submit.addEventListener("click", (e) => {
       fetch(`https://pokeapi.co/api/v2/pokemon/${input.toLowerCase()}`)
       .then((data) => data.json())
       .then((response) => createCard(response)) 
-      .catch ((err) => notFoundError(err));   
+      .catch ((err) => notFoundError(err)); 
+      backtoTop.classList.add('active');
+      backtoTop.innerHTML = `<i class="fas fa-arrow-left"></i>`; 
+      window.removeEventListener('scroll', handleButton); 
 })
 
 const observer = new IntersectionObserver((entries) => {
